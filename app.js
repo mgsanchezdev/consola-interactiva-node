@@ -7,12 +7,12 @@ const main = async () => {
   let opt = "";
   const tareas = new Tareas();
 
-const tareasDB = leerDB();
-if(tareasDB){
-    //Establecer las tareas
-}
-await pausa();
-
+  const tareasDB = leerDB();
+  if (tareasDB) {
+    //Cargar  tareas
+    tareas.cargarTareasFromArray(tareasDB);
+  }
+  
   do {
     //Print menu
     opt = await inquirerMenu();
@@ -27,7 +27,7 @@ await pausa();
         break;
     }
 
-   // guardarDB(tareas.listadoArr);
+    guardarDB(tareas.listadoArr);
     await pausa();
   } while (opt !== "0");
 };
