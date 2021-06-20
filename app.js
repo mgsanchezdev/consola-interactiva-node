@@ -6,6 +6,7 @@ const main = async () => {
   let opt = "";
   const tareas = new Tareas();
   do {
+    //Print menu
     opt = await inquirerMenu();
     switch (opt) {
       case "1":
@@ -14,7 +15,7 @@ const main = async () => {
         tareas.crearTarea(desc);
         break;
       case "2":
-        console.log(tareas._listado);
+        console.log(tareas.listadoArr);
         break;
     }
 
