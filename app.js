@@ -5,6 +5,7 @@ const {
   pausa,
   leerInput,
   listadoTareasBorrar,
+  confirmar,
 } = require("./helpers/inquire");
 const Tareas = require("./helpers/models/tareas");
 
@@ -38,7 +39,13 @@ const main = async () => {
         break;
       case "6":
         const id = await listadoTareasBorrar(tareas.listadoArr);
-        console.log({id})
+        if(id !== '0'){
+            const ok = confirmar("Está seguro");
+            if (ok) {
+              tareas.borrarTarea(id);
+              console.log('Tareas Borrada')
+            }
+        }
         break;
     }
 
